@@ -1,11 +1,9 @@
 """A small, interactive ATM console application."""
 
-from getpass import getpass
 
-
-DEMO_PIN = "1234"
+DEMO_BIRTH_DATE = "2000-01-01"
 STARTING_BALANCE = 1000.00
-MAX_PIN_ATTEMPTS = 3
+MAX_BIRTH_DATE_ATTEMPTS = 3
 
 
 def read_amount(prompt):
@@ -30,13 +28,13 @@ def main():
     print("          WELCOME TO ATM")
     print("=" * 32)
 
-    for attempt in range(MAX_PIN_ATTEMPTS):
-        pin = getpass("Enter your PIN: ")
-        if pin == DEMO_PIN:
+    for attempt in range(MAX_BIRTH_DATE_ATTEMPTS):
+        birth_date = input("Enter your birth date (YYYY-MM-DD): ").strip()
+        if birth_date == DEMO_BIRTH_DATE:
             break
-        remaining = MAX_PIN_ATTEMPTS - attempt - 1
+        remaining = MAX_BIRTH_DATE_ATTEMPTS - attempt - 1
         if remaining:
-            print(f"Incorrect PIN. {remaining} attempt(s) remaining.")
+            print(f"Incorrect birth date. {remaining} attempt(s) remaining.")
     else:
         print("Too many incorrect attempts. Your session has ended.")
         return
